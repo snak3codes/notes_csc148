@@ -1,0 +1,81 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='1.6 Choosing Test Cases.html'>1.6 Choosing Test Cases</a>, Previous: <a href='1.4 Python Type Annotations.html'>1.4 Python Type Annotations</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>1.5 Testing your Work</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><p>The last step of the <a href="https://mcs.utm.utoronto.ca/~148/notes/python-recap/function_design_recipe.pdf">Function Design Recipe</a> is to test your code—but how? In this section, we discuss the different strategies for testing code that you’ll use during the term, and beyond. As you write more and more complex programs in this course, it will be vital to maintain good habits to support you in your programming. One of these habits is developing good tests that will ensure your code is correct, and— often overlooked—using good <em>tools</em> to make those tests as easy to run as possible. You want to get in the habit of writing tests early in the process of programming, and running them as often as possible to detect coding errors as soon as you make them.</p>
+<h3>Doctests: basic examples in docstrings</h3>
+<p>Often, beginners test their code by importing their function into the Python interpreter, and then manually copy-and-pasting their examples one at a time and comparing the output with the expected output in the docstring. This approach is both time-consuming and error-prone. It may be good for a quick sanity check, but we can certainly do better.</p>
+<p>Our first improvement is to use the Python library <strong>doctest</strong>, which looks for examples in docstrings and converts them automatically into runnable tests! To use <code>doctest</code>, you can add the following code to the bottom of any Python file:</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">if</span> <span class="ace_identifier">__name__</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_string">'__main__'</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">import</span> <span class="ace_identifier">doctest</span>     <span class="ace_comment"># import the doctest library</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">doctest</span>.<span class="ace_identifier">testmod</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span>  <span class="ace_comment"># run the tests</span>
+</div></div></div></div><div class="cell text-cell"><p>Then when you run the file, all of the doctest examples are automatically run, and you receive a report about which tests failed.</p>
+<h3>Creating test suites with <code>pytest</code></h3>
+<p>The problem with <code>doctest</code> and putting examples in our docstrings is that we can’t include all of the test cases we want to without making the docstrings far too long for the reader.</p>
+<p>So while you should continue to put in a few basic doctests inside docstrings, in this course you will primarily use the <code>pytest</code> library to test your code. This library allows us to write our tests in a separate file, and so include an exhaustive set of tests without cluttering our code files. You see an example of <code>pytest</code> in your first lab, and will be seeing plenty more throughout the term. There are two important points we want to remind you of when using <code>pytest</code>:</p>
+<ul>
+<li>Each function whose name starts with “test” is a separate test. They are all run independently of each other, and in a random order.</li>
+<li>Tests use the <code>assert</code> statement as the actual action that verifies the correctness of your code. The <code>assert</code> statement is used as follows:</li>
+</ul>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">assert</span> <span class="ace_keyword ace_operator">&lt;</span><span class="ace_identifier">expression</span><span class="ace_keyword ace_operator">&gt;</span>
+</div></div></div></div><div class="cell text-cell"><p>The <code>&lt;expression&gt;</code> should be a boolean expression (e.g., <code>x == 3</code>) that tests something about your function. We say that an assertion <em>succeeds</em> (or <em>passes</em>) when its expression evaluates to <code>True</code>, and it <em>fails</em> when its expression evaluates to <code>False</code>.</p>
+<p>A single test function in <code>pytest</code> can contain multiple <code>assert</code> statements; the test passes if all of the assert statements pass, but it fails when one or more of the <code>assert</code> statements fail.</p>
+</div><div class="cell text-cell"><h3>Choosing test cases</h3>
+<p>We said earlier that keeping our tests in separate files from our source code enables us to write an exhaustive set of tests without worrying about length. But what exactly do we mean by “exhaustive?” In general, it is actually a pretty hard problem to choose test cases to verify the correctness of your program. You want to capture every possible scenario, while avoiding writing redundant tests. A good rule of thumb is to structure your tests around <strong>properties of the inputs</strong>. For example:</p>
+<ul>
+<li><em>integers</em>: 0, 1, positive, negative, “small”, “large”</li>
+<li><em>lists</em>: empty, length 1, no duplicates, duplicates, sorted, unsorted</li>
+<li><em>strings</em>: empty, length 1, alphanumeric characters only, special characters like punctuation marks</li>
+</ul>
+<p>For functions that take in multiple inputs, we often also choose properties based on the <em>relationships between the inputs</em>. For example, for a function that takes two numbers as input, we might have a test for when the first is larger than the second, and another for when the second is larger than the first. For an input of one object and a list, we might have a test for when the object is in the list, and another for when the object isn’t.</p>
+<p>And finally, keep in mind that these are rules of thumb only; none of these properties will always be relevant to a given function. For a complete set of tests, you must understand <em>exactly</em> what the function does, to be able to identify what properties of the inputs really matter.</p>
+<h3>Property-based testing</h3>
+<p>The kinds of tests we’ve discussed so far involve defining <em>input-output pairs</em>: for each test, we write a specific input to the function we’re testing, and then use <code>assert</code> statements to verify the correctness of the corresponding output. (For a function that mutates its input, we use <code>assert</code> statements to verify the correctness of the new state of the input after the function executes.) These tests have the advantage that writing any one individual test is usually straightforward, but the disadvantage that choosing and implementing test cases can be challenging and time-consuming.</p>
+<p>There is another way of constructing tests that we will explore in this course: <em>property-based testing</em>, in which a single test typically consists of a large set of possible inputs that is generated in a programmatic way. Such tests have the advantage that it is usually straightforward to cover a broad range of inputs in a short amount of code (using a library like <code>hypothesis</code>, as we’ll see); but it isn’t always easy to specify exactly what the corresponding outputs should be. If we were to write code to compute the correct answer, how would we know that <em>that</em> code is correct?</p>
+<p>So instead, property-based tests use <code>assert</code> statements to check for <em>properties</em> that the function tested should satisfy. In the simplest case, these are properties that every output of the function should satisfy, regardless of what the input was. For example:</p>
+<ul>
+<li>The <em>type</em> of the output: “the function <code>str</code> should always return a string.”</li>
+<li><em>Allowed values</em> of the output: “the function <code>len</code> should always return an integer that is greater than or equal to zero.”</li>
+<li><em>Relationships</em> between the input and output: “the function <code>max(x, y)</code> should return something that is greater than or equal to both <code>x</code> and <code>y</code>.”</li>
+</ul>
+<p>These properties may seem a little strange, because they do not capture precisely what each function does; for example, <code>str</code> should not just return any string, but a string that represents its input. This is the trade-off that comes with property-based testing: in exchange for being able to run our code on a much larger range of inputs, we write tests which are imprecise characterizations of the function’s inputs. The challenge with property-based testing, then, is to come up with good properties that narrow down as much as possible the behaviour of the function being tested.</p>
+<h3>Putting it all together</h3>
+<p>Ideally, we use all three of these types of testing in combination:</p>
+<ul>
+<li><code>doctest</code> is used to test basic functionality, as well as to communicate what the correct behaviour of the function is.</li>
+<li>test suites (developed using a tool like <code>pytest</code>) are used to fully assess the correctness of our function in a range of carefully chosen test cases that we generate by hand.</li>
+<li>property-based tests (developed using a tool like <code>hypothesis</code>) are used for a more shallow assessment of correctness but on a much larger number of automatically generated test cases.</li>
+</ul>
+</div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = '1.6 Choosing Test Cases.html';
+if (e.keyCode === 37) window.location.href = '1.4 Python Type Annotations.html';
+}</script>
+    </body>
+    </html>
+  

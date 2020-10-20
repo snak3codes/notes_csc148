@@ -1,0 +1,145 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='3.3 Exceptions.html'>3.3 Exceptions</a>, Previous: <a href='3.1 Introduction to Abstract Data Types.html'>3.1 Introduction to Abstract Data Types</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>3.2 Stacks And Queues</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><p>To round out our study of ADTs, we’ll learn about two new ADTs this week: the Stack and the Queue. Both of these ADTs store a collection of items, and support operations to add an item and remove an item. However, unlike a Set or Multiset, in which the client code may specify which item to remove, Stacks and Queues remove and return their items in a fixed order—client code is allowed no choice. This might seem very restrictive and simplistic, but you’ll soon learn how the power of these ADTs lies in their simplicity. Once you learn about them, you’ll start seeing them everywhere, and be able to effectively communicate about these ADTs to any other computer scientist.</p>
+</div><div class="cell text-cell"><h2>The Stack ADT</h2>
+<p>The <strong>Stack</strong> ADT is very simple. A stack contains zero or more items. When you add an item, it goes “on the top” of the stack (we call this “pushing” onto the stack) and when you remove an item, it is removed from the top also (we call this “popping” from the stack).&nbsp;The net effect is that the first item added to the stack is the last item removed. We call this Last-In-First-Out (or LIFO) behaviour. To summarize:</p>
+<ul>
+<li>
+<p><strong>Stack</strong></p>
+<ul>
+<li>Data: a collection of items</li>
+<li>Operations: determine whether the stack is empty, add an item (<em>push</em>), remove the most recently-added item (<em>pop</em>)</li>
+</ul>
+</li>
+</ul>
+<p>In code:</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">class</span> <span class="ace_identifier">Stack</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_string">"""A last-in-first-out (LIFO) stack of items.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    Stores data in last-in, first-out order. When removing an item from the</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    stack, the most recently-added item is the one that is removed.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">__init__</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_constant ace_language">None</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Initialize a new empty stack."""</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">is_empty</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_support ace_function">bool</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Return whether this stack contains no items.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s = Stack()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.is_empty()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    True</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('hello')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.is_empty()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    False</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">push</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span>, <span class="ace_identifier">item</span>: <span class="ace_identifier">Any</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_constant ace_language">None</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Add a new element to the top of this stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">pop</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_identifier">Any</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Remove and return the element at the top of this stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s = Stack()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('hello')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('goodbye')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.pop()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    'goodbye'</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div></div></div></div><div class="cell text-cell"><p>At this point in CSC148, you may immediately picture implementing this with a Python list. You may be wondering “which end of the list is the top of the stack?” But this is irrelevant when you are using the ADT. You are much better off thinking of a pile of objects stacked up. When you are a client of a stack, you don’t need to know the implementation. The reduction in your cognitive load that the abstraction brings is very important. Without it, complex, modern software would not be possible.</p>
+</div><div class="cell text-cell"><h2>The Queue ADT</h2>
+<p>Another important ADT is a <strong>Queue</strong>. Like a stack, a queue contains zero or more items, but items come out of a queue in the order in which they entered. In other words, a queue exhibits First-in-First-Out (FIFO) behaviour. The lineup at the corner store is—one hopes—a queue. We call adding an item to a queue an <strong>enqueue</strong> operation, and the removal of an item a <strong>dequeue</strong> operation.</p>
+<ul>
+<li>
+<p><strong>Queue</strong></p>
+<ul>
+<li>Data: a collection of items</li>
+<li>Operations: determine whether the queue is empty, add an item (<em>enqueue</em>), remove the least recently-added item (<em>dequeue</em>)</li>
+</ul>
+</li>
+</ul>
+</div><div class="cell text-cell"><h2>List-based implementation of the Stack ADT</h2>
+<p>In this section, we’ll now implement the Stack ADT using a built-in Python data structure: the <code>list</code>. Note that here, we’ve chosen to use the <em>end</em> of the list to represent the top of the stack. This wasn’t the only viable option!</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_keyword">class</span> <span class="ace_identifier">Stack</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_string">"""A last-in-first-out (LIFO) stack of items.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    Stores data in first-in, last-out order. When removing an item from the</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    stack, the most recently-added item is the one that is removed.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment"># === Private Attributes ===</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment"># _items:</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">#     The items stored in the stack. The end of the list represents</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_comment">#     the top of the stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_identifier">_items</span>: <span class="ace_identifier">List</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">__init__</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_constant ace_language">None</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Initialize a new empty stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">self</span>.<span class="ace_identifier">_items</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">[</span><span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">is_empty</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_support ace_function">bool</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Return whether this stack contains no items.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s = Stack()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.is_empty()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    True</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('hello')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.is_empty()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    False</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">return</span> <span class="ace_identifier">self</span>.<span class="ace_identifier">_items</span> <span class="ace_keyword ace_operator">==</span> <span class="ace_paren ace_lparen">[</span><span class="ace_paren ace_rparen">]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">push</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span>, <span class="ace_identifier">item</span>: <span class="ace_identifier">Any</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_constant ace_language">None</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Add a new element to the top of this stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_identifier">self</span>.<span class="ace_identifier">_items</span>.<span class="ace_identifier">append</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">item</span><span class="ace_paren ace_rparen">)</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>    <span class="ace_keyword">def</span> <span class="ace_identifier">pop</span><span class="ace_paren ace_lparen">(</span><span class="ace_identifier">self</span><span class="ace_paren ace_rparen">)</span> <span class="ace_keyword ace_operator">-&gt;</span> <span class="ace_identifier">Any</span>:
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_string">"""Remove and return the element at the top of this stack.</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s = Stack()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('hello')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.push('goodbye')</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    &gt;&gt;&gt; s.pop()</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    'goodbye'</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_string">    """</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>    <span class="ace_keyword">return</span> <span class="ace_identifier">self</span>.<span class="ace_identifier">_items</span>.<span class="ace_identifier">pop</span><span class="ace_paren ace_lparen">(</span><span class="ace_paren ace_rparen">)</span>
+</div></div></div></div><div class="cell text-cell"><h2>Abstraction is critical</h2>
+<p>Abstraction is one of the most powerful concepts in computer science. An ADT is an abstraction so general it transcends any specific programming language. This kind of abstraction has profound implications.</p>
+<p>Looking at the class from the outside, a programmer writing client code needs to understand only its public interface. This frees them to focus on what they want to do with the class and ignore everything about how it is implemented.&nbsp;If a client creates a <code>Stack</code> object in their code, they know there are exactly three operations that can be performed on it: checking whether it’s empty, pushing an item onto it, and popping an item from it. This reduces cognitive load for the programmer dramatically. Modern, complex software would be impossible otherwise.</p>
+<p>Looking at the class from the inside, the implementer has complete freedom to change implementation details with no effect on client code. For example, the software can be redesigned to be more efficient, or more elegant (and maintainable). The entire implementation can even change, and every program that uses the class will still work exactly the same as before. We call this “plug-out, plug-in compatibility.”</p>
+</div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = '3.3 Exceptions.html';
+if (e.keyCode === 37) window.location.href = '3.1 Introduction to Abstract Data Types.html';
+}</script>
+    </body>
+    </html>
+  

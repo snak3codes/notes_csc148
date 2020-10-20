@@ -1,0 +1,95 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='3.2 Stacks And Queues.html'>3.2 Stacks And Queues</a>, Previous: <a href='2.7 The object Class and Python Special Methods.html'>2.7 The object Class and Python Special Methods</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>3.1 Introduction to Abstract Data Types</h2>
+      </div>
+      <div id="contentarea"><div class="cell text-cell"><p>In the first few weeks of the course, we have mainly played the role of the <em>class designer and implementer</em>. However, you have actually spent most of your programming career in the opposite role: whenever you use one of Python’s built-in functions or data structures, you only worry about what it does, not how it works. In other words, you are a <em>client</em> of the built-in Python libraries and classes.</p>
+<p>Some concepts are so general and so useful across many problems that they transcend any specific programming language. An <strong>abstract data type</strong> (or ADT) defines some kind of data and the operations that can be performed on it. It is a pure interface, with no mention of an implementation—that’s what makes it <em>abstract</em>. In contrast to this, a <strong>data structure</strong> is a concrete strategy for storing some data. For example, one data structure we could use to store the grades of a class on a series of course activities is a list of lists:</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">grades</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">[[</span><span class="ace_string">'Sadia'</span>, <span class="ace_constant ace_numeric">78</span>, <span class="ace_constant ace_numeric">82</span><span class="ace_paren ace_rparen">]</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_lparen">[</span><span class="ace_string">'Yuan'</span>, <span class="ace_constant ace_numeric">75</span>, <span class="ace_constant ace_numeric">64</span><span class="ace_paren ace_rparen">]</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span><span class="ace_indent-guide">    </span>  <span class="ace_paren ace_lparen">[</span><span class="ace_string">'Elise'</span>, <span class="ace_constant ace_numeric">80</span>, <span class="ace_constant ace_numeric">71</span><span class="ace_paren ace_rparen">]]</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment"># To know what the "columns" are for,</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_comment"># we could use another list:</span>
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">items</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">[</span><span class="ace_string">'A1'</span>, <span class="ace_string">'midterm'</span><span class="ace_paren ace_rparen">]</span>
+</div></div></div></div><div class="cell text-cell"><p>An alternative data structure is a dictionary of dictionaries:</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_identifier">g2</span> <span class="ace_keyword ace_operator">=</span> <span class="ace_paren ace_lparen">{</span><span class="ace_string">'A1'</span>: <span class="ace_paren ace_lparen">{</span><span class="ace_string">'Sadia'</span>: <span class="ace_constant ace_numeric">78</span>, <span class="ace_string">'Yuan'</span>: <span class="ace_constant ace_numeric">75</span>, <span class="ace_string">'Elise'</span>: <span class="ace_constant ace_numeric">80</span><span class="ace_paren ace_rparen">}</span>,
+</div><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_indent-guide">    </span>  <span class="ace_string">'midterm'</span>: <span class="ace_paren ace_lparen">{</span><span class="ace_string">'Sadia'</span>: <span class="ace_constant ace_numeric">82</span>, <span class="ace_string">'Yuan'</span>: <span class="ace_constant ace_numeric">64</span>, <span class="ace_string">'Elise'</span>: <span class="ace_constant ace_numeric">71</span><span class="ace_paren ace_rparen">}}</span>
+</div></div></div></div><div class="cell text-cell"><p>You can very likely think of other options, and may find it interesting to consider pros and cons of the two data structures above. But the point here is that ADTs are fundamentally concerned with the <em>what</em>: what data is stored, and what we can do with this data. Data structures are concerned with the <em>how</em>: how is that data stored, and how do we actually implement our desired methods to operate on this data? This distinction is crucial to the kind of abstract thinking you’ll develop as programmers: by separating the <em>what</em> from the <em>how</em>, you’ll gain substantial benefits, as we are about to learn.</p>
+</div><div class="cell text-cell"><h2>Some famous abstract data types</h2>
+<p>In this section, we’ll briefly describe some of the most common abstract data types in computer science. Now, while computer scientists generally agree on what the “main” abstract data types are, they often disagree on what operations each one actually supports. You’ll notice here that we’ve taken a fairly conservative approach for specifying operations, limiting ourselves to the most basic ones.</p>
+<ul>
+<li>
+<p><strong>Set</strong></p>
+<ul>
+<li>Data: a collection of unique elements</li>
+<li>Operations: get size, insert a value (without introducing duplicates), remove a specified value, check membership</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiset</strong></p>
+<ul>
+<li>Data: a collection of elements (possibly with duplicates)</li>
+<li>Operations: same as Set, but the insert operation allows duplicates</li>
+</ul>
+</li>
+<li>
+<p><strong>List</strong></p>
+<ul>
+<li>Data: an ordered sequence of elements</li>
+<li>Operations: access element by index, insert a value at a given index, remove a value at a given index</li>
+</ul>
+</li>
+<li>
+<p><strong>Map</strong></p>
+<ul>
+<li>Data: a collection of key-value pairs, where each key is unique and associated with a single value</li>
+<li>Operations: lookup a value for a given key, insert a new key-value pair, remove a key-value pair, update the value associated with a given key</li>
+</ul>
+</li>
+<li>
+<p><strong>Iterable</strong></p>
+<ul>
+<li>Data: a collection of values (may or may not be unique)</li>
+<li>Operations: iterate through the elements of the collection one at a time.</li>
+</ul>
+</li>
+</ul>
+<p>Many of these will sound familiar, as you’ll have used them in your past programming experience, even if you haven’t heard the term “abstract data type” before! For example, you have probably used both a Python <code>list</code> and <code>dict</code>. However, there is a really important distinction between Python’s built-in classes and the ADTs we’ve listed above: <code>list</code> and <code>dict</code> are data structures, <em>not</em> abstract data types. That is, they’re concrete implementations, and every necessary decision about <em>how</em> these classes store their data and implement their methods has been made. Indeed, the designers of the Python programming language put a great deal of effort into these implementations so that <code>list</code> and <code>dict</code> operations are extremely fast.</p>
+<p>So a <code>dict</code>, for instance, is not itself an ADT. But it is fair to say that a <code>dict</code> is a natural implementation of the Map ADT. However, <em>there is NOT a one-to-one correspondence between ADTs and data structures</em>, in Python or any other language.</p>
+<p>A single ADT can be implemented by many different data structures. For example, although the Python <code>list</code> is a natural implementation of the List ADT, we could implement it instead with a <code>dict</code> in which each key is the index of its item. A list of 3 elements, <code>hello</code>, 42, and <code>goodbye</code> in positions 0, 1, and 2 respectively, would be</p>
+</div><div class="cell code-cell"><div class="ace-chrome"><div class="ace_static_highlight ace_show_gutter" style="counter-reset:ace_line 0"><div class="ace_line"><span class="ace_gutter ace_gutter-cell" unselectable="on"></span><span class="ace_paren ace_lparen">{</span><span class="ace_constant ace_numeric">0</span>: <span class="ace_string">'hello'</span>, <span class="ace_constant ace_numeric">1</span>: <span class="ace_constant ace_numeric">42</span>, <span class="ace_constant ace_numeric">2</span>: <span class="ace_string">'goodbye'</span><span class="ace_paren ace_rparen">}</span>
+</div></div></div></div><div class="cell text-cell"><p>On the flip side, each data structure can be used to implement multiple ADTs. The Python <code>list</code> can be used to implement not just the List ADT, but each of the other above ADTs as well. For instance, think about how you would implement the Set ADT with a <code>list</code>, and in particular, how you would avoid duplicates.&nbsp;A <code>dict</code> could also implement any of the ADTs above, and the same is true of the new data structures you will learn in this course.</p>
+</div><div class="cell text-cell"><h2>The value of knowing all the standard ADTs</h2>
+<p>We’ve said that each ADT is so general that it transcends any individual problem or program or even programming language. And in fact the ADTs given above are implemented in other programming languages (to varying degrees). While the exact data structures used to implement them vary significantly from language to language, these ADTs concepts form a common vocabulary whose understanding is necessary to being a professional computer scientist.</p>
+</div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = '3.2 Stacks And Queues.html';
+if (e.keyCode === 37) window.location.href = '2.7 The object Class and Python Special Methods.html';
+}</script>
+    </body>
+    </html>
+  
